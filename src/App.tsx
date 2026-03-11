@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Login from '../Login'
 import StudentDashboard from './pages/StudentDashboard'
 import CalendarPage from './pages/CalendarPage'
+import MessagesPage from './pages/MessagesPage'
 import LoadingScreen from './components/LoadingScreen'
 
 function LecturerDashboard(){
@@ -32,6 +33,7 @@ function AppRoutes(){
       <Route path="/dashboard/lecturer" element={<LecturerDashboard/>} />
       <Route path="/dashboard/admin" element={<AdminDashboard/>} />
       <Route path="/calendar" element={<CalendarPage/>} />
+      <Route path="/messages" element={<MessagesPage/>} />
     </Routes>
   )
 }

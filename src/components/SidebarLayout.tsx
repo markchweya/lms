@@ -31,6 +31,8 @@ export default function SidebarLayout({ children, active }: any){
 
   const content: React.CSSProperties = {
     minHeight:'100vh',
+    height:'100vh',
+    overflowY:'auto',
     background:'#F5F6FA',
     padding:'20px'
   }
