@@ -52,9 +52,16 @@ const Login: React.FC = () => {
   return (
     <div style={containerStyle}>
       <div style={leftStyle}>
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', width: '100%' }}>
           <h1 style={{ fontSize: isMobile ? '32px' : '56px', marginBottom: '10px' }}>USIU LMS</h1>
-          <p style={{ opacity: 0.9 }}>Learning Management System</p>
+          <p style={{ opacity: 0.9, marginBottom: '30px' }}>Learning Management System</p>
+
+          <details style={{ width: '100%', maxWidth: '280px', margin: '0 auto', textAlign: 'left' }}>
+            <summary style={{ cursor: 'pointer', fontWeight: 600 }}>Important Links</summary>
+            <div style={{ marginTop: '10px', fontSize: '14px', opacity: 0.9 }}>
+              Links will appear here.
+            </div>
+          </details>
         </div>
       </div>
 
