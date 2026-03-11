@@ -21,6 +21,7 @@ export default function CourseSidebarLayout({ children, active }: any){
     minHeight:'100vh',
     padding:'20px 0',
     transform: open ? 'translateX(0)' : 'translateX(-100%)',
+    boxShadow:'2px 0 15px rgba(0,0,0,0.25)',
     transition:'transform 0.25s ease',
     zIndex:1000
   }
@@ -65,9 +66,7 @@ export default function CourseSidebarLayout({ children, active }: any){
 
   const content:React.CSSProperties={
     flex:1,
-    background:'#F5F6FA',
-    marginLeft: open ? '230px' : '0',
-    transition:'margin-left 0.25s ease'
+    background:'#F5F6FA'
   }
 
   return (

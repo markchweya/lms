@@ -47,8 +47,8 @@ export default function CourseHomePage(){
   }
 
   const container:React.CSSProperties={
-    display:'grid',
-    gridTemplateColumns:'2fr 1fr',
+    display:'flex',
+    flexDirection:'column',
     gap:'25px'
   }
 
