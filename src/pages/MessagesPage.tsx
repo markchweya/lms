@@ -16,7 +16,7 @@ const mockMessages:any = {
 
 export default function MessagesPage(){
 
- const [active,setActive]=useState<any>(courses[1])
+ const [active,setActive]=useState<any>(null)
  const [text,setText]=useState('')
 
  const isMobile = window.innerWidth < 768
