@@ -83,7 +83,7 @@ export default function CourseSidebarLayout({ children, active }: any){
 
         <div style={title}>{code}</div>
 
-        <div style={active==='home'?activeItem:item} onClick={()=>navigate('/course/'+code)}>
+        <div style={active==='home'?activeItem:item} onClick={()=>navigate('/dashboard/student')}>
           Home Page
         </div>
 
