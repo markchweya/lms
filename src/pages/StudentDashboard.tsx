@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import SidebarLayout from '../components/SidebarLayout'
 
 const courses = [
   {
@@ -19,54 +20,28 @@ const courses = [
     instructor: 'Japheth Japheth Mursi',
     image: ''
   }
-];
-
-const layoutStyle: React.CSSProperties = {
-  display: 'flex',
-  height: '100vh',
-  width: '100%'
-};
-
-const sidebarStyle: React.CSSProperties = {
-  width: '250px',
-  background: '#1F3C88',
-  color: '#FFFFFF',
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '20px'
-};
-
-const sidebarItem: React.CSSProperties = {
-  padding: '10px 0',
-  cursor: 'pointer'
-};
-
-const activeItem: React.CSSProperties = {
-  ...sidebarItem,
-  fontWeight: 600,
-  borderLeft: '4px solid #F2B705',
-  paddingLeft: '10px'
-};
+]
 
 const contentStyle: React.CSSProperties = {
   flex: 1,
+  width: '100%',
   background: '#F5F6FA',
   padding: '30px',
-  overflowY: 'auto'
-};
+  boxSizing: 'border-box'
+}
 
 const headerRow: React.CSSProperties = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   marginBottom: '25px'
-};
+}
 
 const gridStyle: React.CSSProperties = {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))',
   gap: '20px'
-};
+}
 
 const cardStyle: React.CSSProperties = {
   background: '#FFFFFF',
@@ -76,7 +51,7 @@ const cardStyle: React.CSSProperties = {
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'column'
-};
+}
 
 const imageStyle: React.CSSProperties = {
   width:'100%',
@@ -88,24 +63,11 @@ const imageStyle: React.CSSProperties = {
   justifyContent:'center',
   color:'#fff',
   fontWeight:600
-};
+}
 
 const StudentDashboard: React.FC = () => {
   return (
-    <div style={layoutStyle}>
-      <div style={sidebarStyle}>
-        <h2 style={{marginBottom:'30px'}}>USIU Africa</h2>
-
-        <div style={sidebarItem}>Activity</div>
-        <div style={activeItem}>Courses</div>
-        <div style={sidebarItem}>Organizations</div>
-        <div style={sidebarItem} onClick={()=>window.location.href='/calendar'}>Calendar</div>
-        <div style={sidebarItem}>Messages</div>
-        <div style={sidebarItem}>Grades</div>
-        <div style={sidebarItem}>Tools</div>
-
-        <div style={{marginTop:'auto'}}>Sign Out</div>
-      </div>
+    <SidebarLayout active="courses">
 
       <div style={contentStyle}>
 
@@ -121,10 +83,7 @@ const StudentDashboard: React.FC = () => {
             <div key={i} style={cardStyle}>
 
               {course.image ? (
-                <img
-                  src={course.image}
-                  style={imageStyle}
-                />
+                <img src={course.image} style={imageStyle} />
               ) : (
                 <div style={imageStyle}>USIU LMS</div>
               )}
@@ -148,8 +107,9 @@ const StudentDashboard: React.FC = () => {
         </div>
 
       </div>
-    </div>
-  );
-};
 
-export default StudentDashboard;
+    </SidebarLayout>
+  )
+}
+
+export default StudentDashboard
