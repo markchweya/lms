@@ -24,7 +24,7 @@ export default function MessagesPage(){
  return(
   <SidebarLayout active="messages">
 
-   <div style={{display:'flex',height:'100%',flexDirection:'column',background:'#6b3cc9'}}>
+   <div style={{display:'flex',height:'100%',flexDirection:'column',background:'linear-gradient(135deg,#1F3C88,#2C4AA5)'}}>
 
     {/* HEADER */}
     <div style={{padding:'24px 20px 40px 20px',color:'#fff'}}>
@@ -82,7 +82,7 @@ export default function MessagesPage(){
               width:'46px',
               height:'46px',
               borderRadius:'50%',
-              background:'#2C4AA5',
+              background:'#1F3C88',
               marginRight:'14px',
               flexShrink:0
             }}/>
