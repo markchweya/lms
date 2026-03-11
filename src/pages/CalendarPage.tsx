@@ -1,11 +1,11 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const layout: React.CSSProperties = {
   display: 'flex',
   height: '100vh',
   width: '100%'
-};
+}
 
 const sidebar: React.CSSProperties = {
   width: '250px',
@@ -14,59 +14,56 @@ const sidebar: React.CSSProperties = {
   padding: '20px',
   display: 'flex',
   flexDirection: 'column'
-};
+}
 
 const sidebarItem: React.CSSProperties = {
   padding: '10px 0',
   cursor: 'pointer'
-};
+}
 
 const activeItem: React.CSSProperties = {
   ...sidebarItem,
   borderLeft: '4px solid #F2B705',
   paddingLeft: '10px',
   fontWeight: 600
-};
+}
 
 const content: React.CSSProperties = {
   flex: 1,
   background: '#F5F6FA',
-  padding: '30px'
-};
+  padding: '30px',
+  overflowY: 'auto'
+}
+
+const grid: React.CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(7, 1fr)',
+  border: '1px solid #ddd'
+}
+
+const cell: React.CSSProperties = {
+  minHeight: '120px',
+  border: '1px solid #eee',
+  padding: '10px',
+  fontSize: '14px'
+}
 
 const headerRow: React.CSSProperties = {
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center'
-};
-
-const weekRow: React.CSSProperties = {
-  display: 'flex',
-  justifyContent: 'space-between',
-  marginTop: '40px',
-  alignItems: 'center'
-};
-
-const day: React.CSSProperties = {
-  width: '48px',
-  height: '48px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  borderRadius: '50%',
-  cursor: 'pointer'
-};
-
-const activeDay: React.CSSProperties = {
-  ...day,
-  background: '#2C4AA5',
-  color: '#fff',
-  fontWeight: 600
-};
+  display: 'grid',
+  gridTemplateColumns: 'repeat(7,1fr)',
+  marginTop: '30px',
+  fontWeight: 600,
+  textAlign: 'center'
+}
 
 const CalendarPage: React.FC = () => {
-  const navigate = useNavigate();
-  const days = [8,9,10,11,12,13,14];
+  const navigate = useNavigate()
+
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+
+  const dates = Array.from({length: 31}, (_,i)=>i+1)
+
+  const blanks = new Array(0).fill(null)
 
   return (
     <div style={layout}>
@@ -75,7 +72,7 @@ const CalendarPage: React.FC = () => {
         <h2 style={{marginBottom:'30px'}}>USIU Africa</h2>
 
         <div style={sidebarItem}>Activity</div>
-        <div style={sidebarItem} onClick={() => navigate('/dashboard/student')}>Courses</div>
+        <div style={sidebarItem} onClick={()=>navigate('/dashboard/student')}>Courses</div>
         <div style={sidebarItem}>Organizations</div>
         <div style={activeItem}>Calendar</div>
         <div style={sidebarItem}>Messages</div>
@@ -87,40 +84,40 @@ const CalendarPage: React.FC = () => {
 
       <div style={content}>
 
-        <div style={headerRow}>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
           <h1>Calendar</h1>
-          <div style={{display:'flex',gap:'20px'}}>
-            <div>+</div>
-            <div>⚙</div>
+          <div style={{display:'flex',gap:'10px'}}>
+            <button>Day</button>
+            <button style={{background:'#2C4AA5',color:'#fff'}}>Month</button>
           </div>
         </div>
 
-        <div style={{marginTop:'30px',textAlign:'center',fontSize:'28px'}}>
+        <div style={{textAlign:'center',fontSize:'28px',marginTop:'10px'}}>
           Mar 2026
         </div>
 
-        <div style={weekRow}>
-          {days.map(d => (
-            <div key={d} style={d===11 ? activeDay : day}>{d}</div>
-          ))}
+        <div style={headerRow}>
+          {days.map(d=> <div key={d}>{d}</div>)}
         </div>
 
-        <div style={{marginTop:'40px'}}>
-          <h3>March 11, 2026</h3>
+        <div style={grid}>
 
-          <div style={{marginTop:'20px',borderTop:'1px solid #ddd'}}>
-            <div style={{padding:'12px 0'}}>9 AM</div>
-            <div style={{padding:'12px 0'}}>10 AM</div>
-            <div style={{padding:'12px 0'}}>11 AM</div>
-            <div style={{padding:'12px 0'}}>12 PM</div>
-          </div>
+          {blanks.map((_,i)=>(
+            <div key={'b'+i} style={cell}></div>
+          ))}
+
+          {dates.map(d=> (
+            <div key={d} style={cell}>
+              <div style={{fontWeight:600}}>{d}</div>
+            </div>
+          ))}
 
         </div>
 
       </div>
 
     </div>
-  );
-};
+  )
+}
 
-export default CalendarPage;
+export default CalendarPage
