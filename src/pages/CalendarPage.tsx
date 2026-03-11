@@ -124,7 +124,7 @@ const CalendarPage: React.FC = () => {
       <div style={content}>
 
         <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:'10px'}}>
-          <h1 style={{margin:0}}>Calendar</h1>
+          <h1 style={{margin:0, paddingLeft: collapsed ? '50px' : '0px'}}>Calendar</h1>
         </div>
 
         <div style={{textAlign:'center',fontSize:'26px',marginTop:'10px'}}>
