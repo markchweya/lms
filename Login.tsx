@@ -11,13 +11,13 @@ const Login: React.FC = () => {
 
   return (
     <div style={styles.page}>
-      <div style={styles.container}>
-        <div style={styles.left}>
-          <h1 style={styles.logo}>USIU LMS</h1>
-          <p style={styles.tag}>Learning Management System</p>
-        </div>
+      <div style={styles.left}>
+        <h1 style={styles.logo}>USIU LMS</h1>
+        <p style={styles.tag}>Learning Management System</p>
+      </div>
 
-        <div style={styles.right}>
+      <div style={styles.right}>
+        <div style={styles.formBox}>
           <h2 style={styles.title}>Sign in</h2>
 
           <form onSubmit={handleLogin} style={styles.form}>
@@ -50,67 +50,68 @@ const Login: React.FC = () => {
 const styles: { [key: string]: React.CSSProperties } = {
   page: {
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     height: '100vh',
-    padding: '20px',
-    background: 'linear-gradient(135deg,#0f172a,#1e3a8a)'
-  },
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
     width: '100%',
-    maxWidth: '900px',
-    background: '#ffffff',
-    borderRadius: '16px',
     overflow: 'hidden',
-    boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
-    flexWrap: 'wrap'
+    margin: 0,
+    padding: 0
   },
+
   left: {
-    flex: '1 1 300px',
-    background: '#1e3a8a',
-    color: '#fff',
+    flex: 1,
+    background: '#2c448f',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '40px'
+    color: 'white'
   },
+
   right: {
-    flex: '1 1 320px',
-    padding: '40px'
+    flex: 1,
+    background: '#f5f6fa',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
+
+  formBox: {
+    width: '100%',
+    maxWidth: '380px'
+  },
+
   logo: {
-    fontSize: '32px',
-    marginBottom: '10px',
-    textAlign: 'center'
+    fontSize: '48px',
+    marginBottom: '10px'
   },
+
   tag: {
-    opacity: 0.85,
-    textAlign: 'center'
+    opacity: 0.85
   },
+
   title: {
     marginBottom: '30px'
   },
+
   form: {
     display: 'flex',
     flexDirection: 'column'
   },
+
   input: {
     padding: '14px',
     marginBottom: '16px',
     borderRadius: '8px',
     border: 'none',
-    background: '#f1f5f9',
-    fontSize: '14px'
+    background: '#e9ecf2'
   },
+
   button: {
     padding: '14px',
     borderRadius: '8px',
     border: 'none',
-    background: '#1e3a8a',
-    color: '#fff',
+    background: '#2c448f',
+    color: 'white',
     fontWeight: 'bold',
     cursor: 'pointer'
   }
