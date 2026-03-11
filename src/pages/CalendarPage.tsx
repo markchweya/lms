@@ -45,7 +45,8 @@ const cell: React.CSSProperties = {
   minHeight: '120px',
   border: '1px solid #eee',
   padding: '10px',
-  fontSize: '14px'
+  fontSize: '14px',
+  position: 'relative'
 }
 
 const headerRow: React.CSSProperties = {
@@ -59,11 +60,12 @@ const headerRow: React.CSSProperties = {
 const CalendarPage: React.FC = () => {
   const navigate = useNavigate()
 
+  const today = new Date()
+  const currentDay = today.getDate()
+
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
 
   const dates = Array.from({length: 31}, (_,i)=>i+1)
-
-  const blanks = new Array(0).fill(null)
 
   return (
     <div style={layout}>
@@ -86,10 +88,6 @@ const CalendarPage: React.FC = () => {
 
         <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
           <h1>Calendar</h1>
-          <div style={{display:'flex',background:'#E6E8F5',borderRadius:'8px',overflow:'hidden',border:'1px solid #d0d4ef'}}>
-            <div style={{padding:'6px 16px',cursor:'pointer',color:'#333'}}>Day</div>
-            <div style={{padding:'6px 16px',background:'#2C4AA5',color:'#fff',fontWeight:600}}>Month</div>
-          </div>
         </div>
 
         <div style={{textAlign:'center',fontSize:'28px',marginTop:'10px'}}>
@@ -102,13 +100,23 @@ const CalendarPage: React.FC = () => {
 
         <div style={grid}>
 
-          {blanks.map((_,i)=>(
-            <div key={'b'+i} style={cell}></div>
-          ))}
-
           {dates.map(d=> (
             <div key={d} style={cell}>
-              <div style={{fontWeight:600}}>{d}</div>
+              <div
+                style={{
+                  fontWeight:600,
+                  width:'32px',
+                  height:'32px',
+                  borderRadius:'50%',
+                  display:'flex',
+                  alignItems:'center',
+                  justifyContent:'center',
+                  background:d===currentDay ? '#2C4AA5' : 'transparent',
+                  color:d===currentDay ? '#fff' : '#000'
+                }}
+              >
+                {d}
+              </div>
             </div>
           ))}
 
