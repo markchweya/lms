@@ -1,43 +1,90 @@
-import React from 'react'
-import SidebarLayout from '../components/SidebarLayout'
+import React, { useState } from 'react'
+import CourseSidebarLayout from '../components/CourseSidebarLayout'
+
+function CollapseItem({title}:{title:string}){
+  const [open,setOpen] = useState(false)
+
+  const header:React.CSSProperties={
+    display:'flex',
+    alignItems:'center',
+    cursor:'pointer',
+    fontWeight:500,
+    color:'#2C4AA5',
+    marginTop:'10px'
+  }
+
+  const body:React.CSSProperties={
+    padding:'8px 0 12px 20px',
+    color:'#777',
+    fontStyle:'italic'
+  }
+
+  return (
+    <div>
+      <div style={header} onClick={()=>setOpen(!open)}>
+        <span style={{marginRight:8}}>{open ? '▼' : '▶'}</span>
+        {title} (0)
+      </div>
+
+      {open && (
+        <div style={body}>
+          Nothing Due {title}
+        </div>
+      )}
+
+      <hr style={{margin:'10px 0',border:'none',borderTop:'1px solid #eee'}}/>
+    </div>
+  )
+}
 
 export default function CourseHomePage(){
 
+  const page:React.CSSProperties={
+    width:'100%',
+    background:'#F5F6FA',
+    padding:'30px',
+    boxSizing:'border-box'
+  }
+
   const container:React.CSSProperties={
-    display:'flex',
-    gap:'20px'
+    display:'grid',
+    gridTemplateColumns:'2fr 1fr',
+    gap:'25px'
   }
 
   const column:React.CSSProperties={
-    flex:1,
     display:'flex',
     flexDirection:'column',
     gap:'20px'
   }
 
   const card:React.CSSProperties={
-    background:'#fff',
-    border:'1px solid #ddd',
-    borderRadius:'6px'
+    background:'#ffffff',
+    borderRadius:'10px',
+    boxShadow:'0 6px 18px rgba(0,0,0,0.08)',
+    overflow:'hidden'
   }
 
   const cardHeader:React.CSSProperties={
-    padding:'12px 16px',
-    borderBottom:'1px solid #ddd',
+    padding:'14px 18px',
     fontWeight:600,
-    background:'#f7f7f7'
+    borderBottom:'1px solid #eee',
+    background:'#fafafa'
   }
 
   const cardBody:React.CSSProperties={
-    padding:'16px',
-    fontSize:'14px'
+    padding:'18px',
+    fontSize:'14px',
+    lineHeight:'1.6'
   }
 
   return (
 
-    <SidebarLayout active="courses">
+    <CourseSidebarLayout active="home">
 
-      <h1 style={{marginBottom:'20px'}}>DSA3020VA</h1>
+      <div style={page}>
+
+      <h1 style={{marginBottom:'25px'}}>Home Page</h1>
 
       <div style={container}>
 
@@ -46,7 +93,7 @@ export default function CourseHomePage(){
           <div style={card}>
             <div style={cardHeader}>My Announcements</div>
             <div style={cardBody}>
-              <div style={{color:'#2C4AA5',marginBottom:'10px'}}>Respondus LockDown Browser</div>
+              <div style={{color:'#2C4AA5',marginBottom:'10px',fontWeight:500}}>Respondus LockDown Browser</div>
               <div style={{fontStyle:'italic',color:'#777'}}>
                 No Course or Organization Announcements have been posted in the last 7 days.
               </div>
@@ -56,7 +103,7 @@ export default function CourseHomePage(){
           <div style={card}>
             <div style={cardHeader}>My Tasks</div>
             <div style={cardBody}>
-              <div>My Tasks:</div>
+              <div style={{fontWeight:500}}>My Tasks:</div>
               <div style={{marginTop:'10px',color:'#777'}}>No tasks due.</div>
             </div>
           </div>
@@ -75,17 +122,18 @@ export default function CourseHomePage(){
           <div style={card}>
             <div style={cardHeader}>To Do</div>
             <div style={cardBody}>
-              <div style={{marginBottom:'10px'}}>What's Past Due</div>
+
+              <div style={{marginBottom:'10px',fontWeight:500}}>What's Past Due</div>
               <div style={{color:'#2C4AA5'}}>All Items (0)</div>
 
-              <hr style={{margin:'15px 0'}} />
+              <hr style={{margin:'18px 0',border:'none',borderTop:'1px solid #eee'}} />
 
-              <div style={{marginBottom:'10px'}}>What's Due</div>
+              <div style={{marginBottom:'10px',fontWeight:500}}>What's Due</div>
 
-              <div style={{marginTop:'10px'}}>Today (0)</div>
-              <div>Tomorrow (0)</div>
-              <div>This Week (0)</div>
-              <div>Future (0)</div>
+              <CollapseItem title="Today" />
+              <CollapseItem title="Tomorrow" />
+              <CollapseItem title="This Week" />
+              <CollapseItem title="Future" />
 
             </div>
           </div>
@@ -94,7 +142,9 @@ export default function CourseHomePage(){
 
       </div>
 
-    </SidebarLayout>
+      </div>
+
+    </CourseSidebarLayout>
 
   )
 }
