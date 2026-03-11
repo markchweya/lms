@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import CourseSidebarLayout from '../components/CourseSidebarLayout'
 
 function CollapseItem({title}:{title:string}){
@@ -39,6 +40,8 @@ function CollapseItem({title}:{title:string}){
 
 export default function CourseHomePage(){
 
+  const { code } = useParams()
+
   const page:React.CSSProperties={
     width:'100%',
     background:'#F5F6FA',
@@ -47,8 +50,8 @@ export default function CourseHomePage(){
   }
 
   const container:React.CSSProperties={
-    display:'flex',
-    flexDirection:'column',
+    display:'grid',
+    gridTemplateColumns:'2fr 1fr',
     gap:'25px'
   }
 
@@ -84,7 +87,7 @@ export default function CourseHomePage(){
 
       <div style={page}>
 
-      <h1 style={{marginBottom:'25px'}}>Home Page</h1>
+      <h1 style={{marginBottom:'25px'}}>{code}</h1>
 
       <div style={container}>
 
