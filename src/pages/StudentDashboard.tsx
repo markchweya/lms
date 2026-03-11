@@ -65,7 +65,10 @@ const imageStyle: React.CSSProperties = {
   fontWeight:600
 }
 
+import { useNavigate } from 'react-router-dom'
+
 const StudentDashboard: React.FC = () => {
+  const navigate = useNavigate()
   return (
     <SidebarLayout active="courses">
 
@@ -80,7 +83,7 @@ const StudentDashboard: React.FC = () => {
 
         <div style={gridStyle}>
           {courses.map((course, i) => (
-            <div key={i} style={cardStyle}>
+            <div key={i} style={cardStyle} onClick={()=>navigate('/course/'+course.code)}>
 
               {course.image ? (
                 <img src={course.image} style={imageStyle} />
