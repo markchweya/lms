@@ -48,21 +48,23 @@ export default function SidebarLayout({ children, active }: any){
     <>
 
       <div
-        onClick={()=>setOpen(true)}
+        onClick={()=>setOpen(!open)}
         style={{
           position:'fixed',
           top:'15px',
-          left:'15px',
-          fontSize:'22px',
+          left: open ? '265px' : '15px',
+          fontSize:'18px',
           cursor:'pointer',
           zIndex:1100,
-          background:'#1F3C88',
+          background:'#2b2b2b',
           color:'#fff',
           padding:'6px 10px',
-          borderRadius:'6px'
+          borderRadius:'8px',
+          transition:'left 0.25s ease'
         }}
+        title={open ? 'Close sidebar' : 'Open sidebar'}
       >
-        ☰
+        {open ? '❮' : '☰'}
       </div>
 
       {open && <div style={overlay} onClick={()=>setOpen(false)} />}
