@@ -1,58 +1,47 @@
 import React, { useState } from 'react';
 
 const Login: React.FC = () => {
-  const [role, setRole] = useState('student');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (role === 'student') {
-      window.location.href = '/dashboard/student';
-    } else if (role === 'lecturer') {
-      window.location.href = '/dashboard/lecturer';
-    } else if (role === 'admin') {
-      window.location.href = '/dashboard/admin';
-    }
+    window.location.href = '/dashboard/student';
   };
 
   return (
     <div style={styles.page}>
-      <div style={styles.card}>
-        <h1 style={styles.brand}>USIU LMS</h1>
-        <h2>Login</h2>
+      <div style={styles.container}>
+        <div style={styles.left}>
+          <h1 style={styles.logo}>USIU LMS</h1>
+          <p style={styles.tag}>Learning Management System</p>
+        </div>
 
-        <form onSubmit={handleLogin}>
-          <label>Login As</label>
-          <select value={role} onChange={(e) => setRole(e.target.value)} style={styles.input}>
-            <option value="student">Student</option>
-            <option value="lecturer">Lecturer</option>
-            <option value="admin">Admin</option>
-          </select>
+        <div style={styles.right}>
+          <h2 style={styles.title}>Sign in</h2>
 
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            style={styles.input}
-            required
-          />
+          <form onSubmit={handleLogin} style={styles.form}>
+            <input
+              type="email"
+              placeholder="Email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={styles.input}
+              required
+            />
 
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            style={styles.input}
-            required
-          />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={styles.input}
+              required
+            />
 
-          <button type="submit" style={styles.button}>Login</button>
-        </form>
+            <button type="submit" style={styles.button}>Login</button>
+          </form>
+        </div>
       </div>
     </div>
   );
@@ -64,37 +53,67 @@ const styles: { [key: string]: React.CSSProperties } = {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    background: '#f4f6f9',
+    padding: '20px',
+    background: 'linear-gradient(135deg,#0f172a,#1e3a8a)'
   },
-  card: {
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    maxWidth: '900px',
     background: '#ffffff',
-    padding: '30px',
-    borderRadius: '10px',
-    width: '350px',
-    boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+    borderRadius: '16px',
+    overflow: 'hidden',
+    boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
+    flexWrap: 'wrap'
   },
-  brand: {
-    textAlign: 'center',
-    color: '#002f6c',
+  left: {
+    flex: '1 1 300px',
+    background: '#1e3a8a',
+    color: '#fff',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '40px'
+  },
+  right: {
+    flex: '1 1 320px',
+    padding: '40px'
+  },
+  logo: {
+    fontSize: '32px',
+    marginBottom: '10px',
+    textAlign: 'center'
+  },
+  tag: {
+    opacity: 0.85,
+    textAlign: 'center'
+  },
+  title: {
+    marginBottom: '30px'
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column'
   },
   input: {
-    width: '100%',
-    padding: '10px',
-    marginTop: '5px',
-    marginBottom: '10px',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
+    padding: '14px',
+    marginBottom: '16px',
+    borderRadius: '8px',
+    border: 'none',
+    background: '#f1f5f9',
+    fontSize: '14px'
   },
   button: {
-    width: '100%',
-    padding: '10px',
-    background: '#002f6c',
-    color: '#fff',
+    padding: '14px',
+    borderRadius: '8px',
     border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
+    background: '#1e3a8a',
+    color: '#fff',
     fontWeight: 'bold',
-  },
+    cursor: 'pointer'
+  }
 };
 
 export default Login;
