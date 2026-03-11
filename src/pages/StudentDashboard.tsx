@@ -70,10 +70,24 @@ const gridStyle: React.CSSProperties = {
 
 const cardStyle: React.CSSProperties = {
   background: '#FFFFFF',
-  borderRadius: '8px',
+  borderRadius: '10px',
   overflow: 'hidden',
-  boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
-  cursor: 'pointer'
+  boxShadow: '0 6px 18px rgba(0,0,0,0.08)',
+  cursor: 'pointer',
+  display: 'flex',
+  flexDirection: 'column'
+};
+
+const imageStyle: React.CSSProperties = {
+  width:'100%',
+  height:'160px',
+  objectFit:'cover',
+  background:'#2C4AA5',
+  display:'flex',
+  alignItems:'center',
+  justifyContent:'center',
+  color:'#fff',
+  fontWeight:600
 };
 
 const StudentDashboard: React.FC = () => {
@@ -106,11 +120,13 @@ const StudentDashboard: React.FC = () => {
           {courses.map((course, i) => (
             <div key={i} style={cardStyle}>
 
-              {course.image && (
+              {course.image ? (
                 <img
                   src={course.image}
-                  style={{width:'100%',height:'140px',objectFit:'cover'}}
+                  style={imageStyle}
                 />
+              ) : (
+                <div style={imageStyle}>USIU LMS</div>
               )}
 
               <div style={{padding:'15px'}}>

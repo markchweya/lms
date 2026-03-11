@@ -15,7 +15,12 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = '/dashboard/student';
+
+    if (email === 'student@usiu.app' && password === '123') {
+      window.location.href = '/dashboard/student';
+    } else {
+      alert('Invalid username or password');
+    }
   };
 
   const toggleDark = () => setDarkMode(!darkMode);

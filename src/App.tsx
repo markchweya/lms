@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from '../Login'
 
-function StudentDashboard(){
-  return <h1>Student Dashboard</h1>
-}
+import StudentDashboard from './pages/StudentDashboard'
+
+// placeholder dashboards removed
 
 function LecturerDashboard(){
   return <h1>Lecturer Dashboard</h1>
