@@ -6,6 +6,7 @@ const content: React.CSSProperties = {
   width: '100%',
   background: '#F5F6FA',
   padding: '16px',
+  paddingTop: '60px',
   boxSizing: 'border-box'
 }
 
