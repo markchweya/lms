@@ -79,7 +79,7 @@ export default function SidebarLayout({ children, active }: any){
           <div style={active==='courses'?activeItem:item} onClick={()=>navigate('/dashboard/student')}>Courses</div>
           <div style={item}>Organizations</div>
           <div style={active==='calendar'?activeItem:item} onClick={()=>navigate('/calendar')}>Calendar</div>
-          <div style={item}>Messages</div>
+          <div style={active==='messages'?activeItem:item} onClick={()=>navigate('/messages')}>Messages</div>
           <div style={item}>Grades</div>
           <div style={item}>Tools</div>
         </div>

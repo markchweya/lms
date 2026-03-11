@@ -1,79 +1,193 @@
 import React, { useState } from 'react'
 import SidebarLayout from '../components/SidebarLayout'
 
-const conversations = [
-  {course:'APT3040D', name:'APT3040D Group', last:'Assignment discussion', time:'2:30pm'},
-  {course:'DSA3020VA', name:'DSA3020VA Group', last:'Anyone solved question 2?', time:'Yesterday'},
-  {course:'DSA3030A', name:'DSA3030A Group', last:'Study group tonight', time:'Mon'}
+const courses = [
+  { id:'APT3040D', title:'APT3040D Group', last:'Assignment discussion' },
+  { id:'DSA3020VA', title:'DSA3020VA Group', last:'Anyone solved question 2?' },
+  { id:'DSA3030A', title:'DSA3030A Group', last:'Study group tonight' }
 ]
 
-const messagesMock:any = {
-  'APT3040D Group':[ {from:'them', text:'Hello APT3040D class'}, {from:'me', text:'Hi everyone'} ],
-  'DSA3020VA Group':[ {from:'them', text:'Anyone solved question 2?'}, {from:'me', text:'Working on it'} ],
-  'DSA3030A Group':[ {from:'them', text:'Study group tonight'}, {from:'me', text:'I will join'} ]
+const mockMessages:any = {
+  APT3040D:[{from:'them',text:'Hello class'},{from:'me',text:'Hi everyone'}],
+  DSA3020VA:[{from:'them',text:'Has anyone solved question 2?'},{from:'me',text:'Working on it'}],
+  DSA3030A:[{from:'them',text:'Reminder: project next week'},{from:'me',text:'Thanks for reminder'}]
 }
-
-const container:React.CSSProperties={display:'flex',height:'100%',gap:'0'}
-
-const listStyle:React.CSSProperties={
-  width:'320px',
-  borderRight:'1px solid #e2e2e2',
-  background:'#fff',
-  overflowY:'auto'
-}
-
-const chatStyle:React.CSSProperties={flex:1,display:'flex',flexDirection:'column',background:'#F5F6FA'}
-
-const header:React.CSSProperties={padding:'15px',borderBottom:'1px solid #ddd',background:'#fff',fontWeight:600}
-
-const messageArea:React.CSSProperties={flex:1,padding:'20px',overflowY:'auto',display:'flex',flexDirection:'column',gap:'10px'}
-
-const inputRow:React.CSSProperties={padding:'10px',borderTop:'1px solid #ddd',background:'#fff',display:'flex',gap:'10px'}
-
-const bubbleMe:React.CSSProperties={alignSelf:'flex-end',background:'#2C4AA5',color:'#fff',padding:'10px 14px',borderRadius:'14px'}
-
-const bubbleThem:React.CSSProperties={alignSelf:'flex-start',background:'#E6EAF5',padding:'10px 14px',borderRadius:'14px'}
 
 export default function MessagesPage(){
-  const [active,setActive]=useState(conversations[0])
-  const [text,setText]=useState('')
 
-  const msgs=messagesMock[active.name] || []
+ const [active,setActive]=useState<any>(courses[1])
+ const [text,setText]=useState('')
 
-  return (
-    <SidebarLayout active="messages">
+ const isMobile = window.innerWidth < 768
+ const messages = active ? mockMessages[active.id] : []
 
-      <div style={container}>
+ return(
+  <SidebarLayout active="messages">
 
-        <div style={listStyle}>
-          {conversations.map((c,i)=> (
-            <div key={i} onClick={()=>setActive(c)} style={{padding:'15px',borderBottom:'1px solid #eee',cursor:'pointer'}}>
-              <div style={{fontWeight:600}}>{c.name}</div>
-              <div style={{fontSize:'12px',color:'#666'}}>{c.course}</div>
-              <div style={{fontSize:'12px',color:'#999'}}>{c.last}</div>
+   <div style={{display:'flex',height:'100%',flexDirection:'column',background:'#6b3cc9'}}>
+
+    {/* HEADER */}
+    <div style={{padding:'24px 20px 40px 20px',color:'#fff'}}>
+      <div style={{fontSize:'22px',fontWeight:600,marginBottom:'12px'}}>Messages</div>
+      <input
+        placeholder="Search message"
+        style={{
+          width:'100%',
+          padding:'12px 18px',
+          borderRadius:'30px',
+          border:'none',
+          outline:'none',
+          fontSize:'14px',
+          boxShadow:'0 4px 12px rgba(0,0,0,0.15)'
+        }}
+      />
+    </div>
+
+    {/* MAIN CONTAINER */}
+    <div style={{
+      flex:1,
+      background:'#fff',
+      borderTopLeftRadius:'35px',
+      borderTopRightRadius:'35px',
+      display:'flex',
+      overflow:'hidden',
+      boxShadow:'0 -6px 20px rgba(0,0,0,0.08)'
+    }}>
+
+      {/* LEFT LIST */}
+      {(!isMobile || !active) && (
+      <div style={{width:isMobile?'100%':'360px',borderRight:'1px solid #eee',background:'#fafafa'}}>
+
+        {courses.map((c,i)=>(
+          <div key={i}
+            style={{
+              display:'flex',
+              alignItems:'center',
+              padding:'18px',
+              borderBottom:'1px solid #f0f0f0',
+              cursor:'pointer',
+              transition:'background 0.2s'
+            }}
+            onClick={()=>setActive(c)}
+          >
+            <div style={{
+              width:'46px',
+              height:'46px',
+              borderRadius:'50%',
+              background:'#2C4AA5',
+              marginRight:'14px',
+              flexShrink:0
+            }}/>
+
+            <div>
+              <div style={{fontWeight:600,fontSize:'15px'}}>{c.title}</div>
+              <div style={{fontSize:'12px',color:'#777',marginTop:'3px'}}>{c.last}</div>
+            </div>
+          </div>
+        ))}
+
+      </div>
+      )}
+
+      {/* CHAT */}
+      {active && (
+      <div style={{flex:1,display:'flex',flexDirection:'column',background:'#F5F6FA'}}>
+
+        <div style={{
+          padding:'18px 20px',
+          borderBottom:'1px solid #e5e5e5',
+          background:'#fff',
+          fontWeight:600,
+          display:'flex',
+          alignItems:'center',
+          borderTopRightRadius:'35px'
+        }}>
+          {isMobile && (
+            <button
+              onClick={()=>setActive(null)}
+              style={{marginRight:'12px',background:'none',border:'none',fontSize:'18px',cursor:'pointer'}}
+            >←</button>
+          )}
+          {active.title}
+        </div>
+
+        <div style={{
+          flex:1,
+          padding:'28px',
+          display:'flex',
+          flexDirection:'column',
+          gap:'14px',
+          overflowY:'auto'
+        }}>
+          {messages.map((m:any,i:number)=> (
+            <div
+              key={i}
+              style={m.from==='me'
+                ?{
+                  alignSelf:'flex-end',
+                  background:'#2C4AA5',
+                  color:'#fff',
+                  padding:'12px 18px',
+                  borderRadius:'20px',
+                  maxWidth:'260px',
+                  boxShadow:'0 3px 8px rgba(0,0,0,0.12)'
+                }
+                :{
+                  alignSelf:'flex-start',
+                  background:'#E6EAF5',
+                  padding:'12px 18px',
+                  borderRadius:'20px',
+                  maxWidth:'260px'
+                }
+              }
+            >
+              {m.text}
             </div>
           ))}
         </div>
 
-        <div style={chatStyle}>
+        <div style={{
+          display:'flex',
+          padding:'18px',
+          background:'#fff',
+          borderTop:'1px solid #e5e5e5'
+        }}>
+          <input
+            value={text}
+            onChange={e=>setText(e.target.value)}
+            placeholder="Type your message here..."
+            style={{
+              flex:1,
+              padding:'12px 18px',
+              borderRadius:'25px',
+              border:'1px solid #ddd',
+              outline:'none',
+              fontSize:'14px'
+            }}
+          />
 
-          <div style={header}>{active.name}</div>
-
-          <div style={messageArea}>
-            {msgs.map((m:any,i:number)=> (
-              <div key={i} style={m.from==='me'?bubbleMe:bubbleThem}>{m.text}</div>
-            ))}
-          </div>
-
-          <div style={inputRow}>
-            <input value={text} onChange={e=>setText(e.target.value)} placeholder="Type message..." style={{flex:1,padding:'10px'}}/>
-            <button style={{background:'#2C4AA5',color:'#fff',border:'none',padding:'10px 16px',borderRadius:'6px'}}>Send</button>
-          </div>
-
+          <button
+            style={{
+              marginLeft:'10px',
+              background:'#2C4AA5',
+              color:'#fff',
+              border:'none',
+              padding:'12px 20px',
+              borderRadius:'25px',
+              cursor:'pointer',
+              fontWeight:600,
+              boxShadow:'0 4px 10px rgba(0,0,0,0.15)'
+            }}
+          >Send</button>
         </div>
 
       </div>
+      )}
 
-    </SidebarLayout>
-  )
+    </div>
+
+   </div>
+
+  </SidebarLayout>
+ )
 }
