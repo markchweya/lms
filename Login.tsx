@@ -56,12 +56,13 @@ const Login: React.FC = () => {
           <h1 style={{ fontSize: isMobile ? '32px' : '56px', marginBottom: '10px' }}>USIU LMS</h1>
           <p style={{ opacity: 0.9, marginBottom: '30px' }}>Learning Management System</p>
 
-          <details style={{ width: '100%', maxWidth: '280px', margin: '0 auto', textAlign: 'left' }}>
-            <summary style={{ cursor: 'pointer', fontWeight: 600 }}>Important Links</summary>
-            <div style={{ marginTop: '10px', fontSize: '14px', opacity: 0.9 }}>
+          <div style={{ width: '100%', maxWidth: '280px', margin: '20px auto 0 auto', textAlign: 'left' }}>
+            <div style={{ fontWeight: 600, cursor: 'pointer' }}>Important Links</div>
+            <div style={{ marginTop: '10px', fontSize: '14px', opacity: 0.9, minHeight: '20px' }}>
               Links will appear here.
             </div>
-          </details>
+          </div>
+
         </div>
       </div>
 
