@@ -57,9 +57,13 @@ const Login: React.FC = () => {
           <p style={{ opacity: 0.9, marginBottom: '30px' }}>Learning Management System</p>
 
           <div style={{ width: '100%', maxWidth: '280px', margin: '20px auto 0 auto', textAlign: 'left' }}>
-            <div style={{ fontWeight: 600, cursor: 'pointer' }}>Important Links</div>
-            <div style={{ marginTop: '10px', fontSize: '14px', opacity: 0.9, minHeight: '20px' }}>
-              Links will appear here.
+            <div style={{ width: '100%', marginTop: '20px' }}>
+              <details style={{ width: '100%', position: 'absolute' }}>
+                <summary style={{ fontWeight: 600, cursor: 'pointer' }}>Important Links</summary>
+                <div style={{ marginTop: '10px', fontSize: '14px', opacity: 0.9, minHeight: '20px' }}>
+                  Links will appear here.
+                </div>
+              </details>
             </div>
           </div>
 
