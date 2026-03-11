@@ -65,7 +65,7 @@ const Login: React.FC = () => {
             <button onClick={toggleDark} style={{ border:'none', background:'transparent', cursor:'pointer', display:'flex', alignItems:'center', justifyContent:'center' }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {darkMode ? (
-                  <path d="M12 4.5V2M12 22v-2.5M4.5 12H2M22 12h-2.5M5.64 5.64L4.22 4.22M19.78 19.78l-1.42-1.42M5.64 18.36L4.22 19.78M19.78 4.22l-1.42 1.42M12 18a6 6 0 100-12 6 6 0 000 12z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 4.5V2M12 22v-2.5M4.5 12H2M22 12h-2.5M5.64 5.64L4.22 4.22M19.78 19.78l-1.42-1.42M5.64 18.36L4.22 19.78M19.78 4.22l-1.42 1.42M12 18a6 6 0 100-12 6 6 0 000 12z" stroke={darkMode ? '#ffffff' : '#f2b705'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 ) : (
                   <path d="M21 12.79A9 9 0 1111.21 3c0 .34.02.67.05 1A7 7 0 0020 13a7.16 7.16 0 001-.21z" fill="currentColor"/>
                 )}
