@@ -29,18 +29,26 @@ export default function MessagesPage(){
     {/* HEADER */}
     <div style={{padding:'24px 20px 40px 20px',color:'#fff'}}>
       <div style={{fontSize:'22px',fontWeight:600,marginBottom:'12px'}}>Messages</div>
-      <input
-        placeholder="Search message"
-        style={{
-          width:'100%',
-          padding:'12px 18px',
-          borderRadius:'30px',
-          border:'none',
-          outline:'none',
-          fontSize:'14px',
-          boxShadow:'0 4px 12px rgba(0,0,0,0.15)'
-        }}
-      />
+      <div style={{
+        width:'100%',
+        background:'#ffffff',
+        borderRadius:'40px',
+        padding:'4px',
+        boxShadow:'0 6px 16px rgba(0,0,0,0.15)'
+      }}>
+        <input
+          placeholder="Search message"
+          style={{
+            width:'100%',
+            padding:'12px 18px',
+            borderRadius:'40px',
+            border:'none',
+            outline:'none',
+            fontSize:'14px',
+            background:'transparent'
+          }}
+        />
+      </div>
     </div>
 
     {/* MAIN CONTAINER */}
@@ -150,7 +158,8 @@ export default function MessagesPage(){
           display:'flex',
           padding:'18px',
           background:'#fff',
-          borderTop:'1px solid #e5e5e5'
+          borderTop:'1px solid #e5e5e5',
+          marginBottom:'20px'
         }}>
           <input
             value={text}
