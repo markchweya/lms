@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom'
 
 const layout: React.CSSProperties = {
   display: 'flex',
-  height: '100vh',
+  minHeight: '100vh',
   width: '100%'
 }
 
 const sidebar: React.CSSProperties = {
   width: '250px',
+  minWidth: '220px',
   background: '#1F3C88',
   color: '#fff',
   padding: '20px',
@@ -30,31 +31,34 @@ const activeItem: React.CSSProperties = {
 
 const content: React.CSSProperties = {
   flex: 1,
+  width: '100%',
   background: '#F5F6FA',
-  padding: '30px',
-  overflowY: 'auto'
-}
-
-const grid: React.CSSProperties = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(7, 1fr)',
-  border: '1px solid #ddd'
-}
-
-const cell: React.CSSProperties = {
-  minHeight: '120px',
-  border: '1px solid #eee',
-  padding: '10px',
-  fontSize: '14px',
-  position: 'relative'
+  padding: '16px',
+  overflowX: 'auto'
 }
 
 const headerRow: React.CSSProperties = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(7,1fr)',
-  marginTop: '30px',
+  gridTemplateColumns: 'repeat(7, minmax(120px,1fr))',
+  marginTop: '20px',
   fontWeight: 600,
   textAlign: 'center'
+}
+
+const grid: React.CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(7, minmax(90px,1fr))',
+  width: '100%',
+  border: '1px solid #ddd'
+}
+
+const cell: React.CSSProperties = {
+  minHeight: '90px',
+  border: '1px solid #eee',
+  padding: '6px',
+  fontSize: '13px',
+  position: 'relative',
+  background: '#fff'
 }
 
 const CalendarPage: React.FC = () => {
@@ -86,11 +90,11 @@ const CalendarPage: React.FC = () => {
 
       <div style={content}>
 
-        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-          <h1>Calendar</h1>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:'10px'}}>
+          <h1 style={{margin:0}}>Calendar</h1>
         </div>
 
-        <div style={{textAlign:'center',fontSize:'28px',marginTop:'10px'}}>
+        <div style={{textAlign:'center',fontSize:'26px',marginTop:'10px'}}>
           Mar 2026
         </div>
 
@@ -105,14 +109,15 @@ const CalendarPage: React.FC = () => {
               <div
                 style={{
                   fontWeight:600,
-                  width:'32px',
-                  height:'32px',
+                  width:'30px',
+                  height:'30px',
                   borderRadius:'50%',
                   display:'flex',
                   alignItems:'center',
                   justifyContent:'center',
                   background:d===currentDay ? '#2C4AA5' : 'transparent',
-                  color:d===currentDay ? '#fff' : '#000'
+                  color:d===currentDay ? '#fff' : '#000',
+                  fontSize:'14px'
                 }}
               >
                 {d}
