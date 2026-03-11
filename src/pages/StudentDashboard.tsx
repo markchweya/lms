@@ -99,7 +99,7 @@ const StudentDashboard: React.FC = () => {
         <div style={sidebarItem}>Activity</div>
         <div style={activeItem}>Courses</div>
         <div style={sidebarItem}>Organizations</div>
-        <div style={sidebarItem}>Calendar</div>
+        <div style={sidebarItem} onClick={()=>window.location.href='/calendar'}>Calendar</div>
         <div style={sidebarItem}>Messages</div>
         <div style={sidebarItem}>Grades</div>
         <div style={sidebarItem}>Tools</div>

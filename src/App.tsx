@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from '../Login'
 
 import StudentDashboard from './pages/StudentDashboard'
+import CalendarPage from './pages/CalendarPage'
 
 // placeholder dashboards removed
 
@@ -21,6 +22,7 @@ export default function App(){
         <Route path="/dashboard/student" element={<StudentDashboard/>} />
         <Route path="/dashboard/lecturer" element={<LecturerDashboard/>} />
         <Route path="/dashboard/admin" element={<AdminDashboard/>} />
+        <Route path="/calendar" element={<CalendarPage/>} />
       </Routes>
     </BrowserRouter>
   )
