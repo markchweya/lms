@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const layout: React.CSSProperties = {
   display: 'flex',
@@ -64,6 +65,7 @@ const activeDay: React.CSSProperties = {
 };
 
 const CalendarPage: React.FC = () => {
+  const navigate = useNavigate();
   const days = [8,9,10,11,12,13,14];
 
   return (
@@ -73,7 +75,7 @@ const CalendarPage: React.FC = () => {
         <h2 style={{marginBottom:'30px'}}>USIU Africa</h2>
 
         <div style={sidebarItem}>Activity</div>
-        <div style={sidebarItem}>Courses</div>
+        <div style={sidebarItem} onClick={() => navigate('/dashboard/student')}>Courses</div>
         <div style={sidebarItem}>Organizations</div>
         <div style={activeItem}>Calendar</div>
         <div style={sidebarItem}>Messages</div>
