@@ -52,7 +52,7 @@ export default function CourseHomePage(){
 
   const container:React.CSSProperties={
     display:'grid',
-    gridTemplateColumns:'2fr 1fr',
+    gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))',
     gap:'25px'
   }
 
