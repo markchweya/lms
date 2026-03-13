@@ -4,7 +4,7 @@ import SidebarLayout from '../components/SidebarLayout'
 export default function ProfilePage(){
 
   const container:React.CSSProperties={
-    padding:'40px',
+    padding:'20px',
     background:'#F5F6FA',
     minHeight:'100vh'
   }
@@ -23,7 +23,7 @@ export default function ProfilePage(){
   }
 
   const name:React.CSSProperties={
-    fontSize:'32px',
+    fontSize:'clamp(24px,4vw,32px)',
     fontWeight:600
   }
 
@@ -34,8 +34,8 @@ export default function ProfilePage(){
 
   const grid:React.CSSProperties={
     display:'grid',
-    gridTemplateColumns:'1fr 1fr',
-    gap:'30px',
+    gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))',
+    gap:'20px',
     maxWidth:'900px',
     margin:'0 auto'
   }
