@@ -5,6 +5,7 @@ import StudentDashboard from './pages/StudentDashboard'
 import CalendarPage from './pages/CalendarPage'
 import MessagesPage from './pages/MessagesPage'
 import CourseHomePage from './pages/CourseHomePage'
+import ContactsPage from './pages/ContactsPage'
 import ContentPage from './pages/ContentPage'
 import LoadingScreen from './components/LoadingScreen'
 
@@ -59,6 +60,7 @@ function AppRoutes(){
           <Route path="/messages" element={<MessagesPage/>} />
           <Route path="/course/:code" element={<CourseHomePage/>} />
           <Route path="/course/:code/content" element={<ContentPage/>} />
+          <Route path="/course/:code/contacts" element={<ContactsPage/>} />
           import CourseHomePage from './pages/CourseHomePage'
 
         </Routes>

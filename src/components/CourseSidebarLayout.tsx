@@ -105,8 +105,8 @@ export default function CourseSidebarLayout({ children, active }: any){
           Groups
         </div>
 
-        <div style={active==='tools'?activeItem:item}>
-          Tools
+        <div style={active==='contacts'?activeItem:item} onClick={()=>navigate(`/course/${code}/contacts`)}>
+          Contacts
         </div>
 
         <div style={active==='help'?activeItem:item}>
