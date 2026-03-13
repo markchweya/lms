@@ -92,7 +92,7 @@ export default function ContentPage(){
 
       <div style={page}>
 
-        <div style={header}>{code} Content</div>
+        <div style={header}>Content</div>
 
         <div style={list}>
 
