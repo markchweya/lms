@@ -7,6 +7,7 @@ import MessagesPage from './pages/MessagesPage'
 import CourseHomePage from './pages/CourseHomePage'
 import ContactsPage from './pages/ContactsPage'
 import ContentPage from './pages/ContentPage'
+import ProfilePage from './pages/ProfilePage'
 import LoadingScreen from './components/LoadingScreen'
 
 function LecturerDashboard(){
@@ -61,6 +62,7 @@ function AppRoutes(){
           <Route path="/course/:code" element={<CourseHomePage/>} />
           <Route path="/course/:code/content" element={<ContentPage/>} />
           <Route path="/course/:code/contacts" element={<ContactsPage/>} />
+          <Route path="/profile" element={<ProfilePage/>} />
           import CourseHomePage from './pages/CourseHomePage'
 
         </Routes>

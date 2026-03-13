@@ -75,12 +75,16 @@ export default function SidebarLayout({ children, active }: any){
         <h2 style={{marginTop:0}}>USIU Africa</h2>
 
         <div style={{marginTop:'30px'}}>
+          <div style={{...item,display:'flex',alignItems:'center',gap:'10px',cursor:'pointer'}} onClick={()=>navigate('/profile')}>
+            <span style={{width:'26px',height:'26px',borderRadius:'50%',background:'#555',display:'inline-block'}}></span>
+            <span style={{cursor:'pointer'}}>Test Name</span>
+          </div>
+
           <div style={active==='activity'?activeItem:item}>Activity</div>
           <div style={active==='courses'?activeItem:item} onClick={()=>navigate('/dashboard/student')}>Courses</div>
           <div style={active==='calendar'?activeItem:item} onClick={()=>navigate('/calendar')}>Calendar</div>
           <div style={active==='messages'?activeItem:item} onClick={()=>navigate('/messages')}>Messages</div>
           <div style={item}>Grades</div>
-          <div style={item}>Tools</div>
         </div>
 
         <div style={{marginTop:'auto'}}>Sign Out</div>
