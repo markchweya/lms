@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import CourseSidebarLayout from '../components/CourseSidebarLayout'
 
 function CollapseItem({title}:{title:string}){
@@ -39,6 +39,8 @@ function CollapseItem({title}:{title:string}){
 }
 
 export default function CourseHomePage(){
+
+  const navigate = useNavigate()
 
   const { code } = useParams()
 
@@ -88,7 +90,22 @@ export default function CourseHomePage(){
 
       <div style={page}>
 
-      <h1 style={{marginBottom:'25px'}}>{code}</h1>
+      <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'25px'}}>
+        <div
+          onClick={()=>navigate('/dashboard/student')}
+          style={{
+            cursor:'pointer',
+            fontSize:'22px',
+            background:'#ffffff',
+            padding:'8px 10px',
+            borderRadius:'8px',
+            boxShadow:'0 3px 8px rgba(0,0,0,0.15)'
+          }}
+        >
+          🏠
+        </div>
+        <h1 style={{margin:0}}>{code}</h1>
+      </div>
 
       <div style={container}>
 

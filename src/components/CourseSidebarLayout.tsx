@@ -84,7 +84,12 @@ export default function CourseSidebarLayout({ children, active }: any){
 
         <div style={title}>{code}</div>
 
-        <div style={active==='home'?activeItem:item} onClick={()=>navigate('/dashboard/student')}>
+        <div style={{...item,display:'flex',alignItems:'center',gap:'10px'}} onClick={()=>navigate('/dashboard/student')}>
+          <span style={{fontSize:'18px'}}>⌂</span>
+          Home
+        </div>
+
+        <div style={active==='home'?activeItem:item} onClick={()=>navigate(`/course/${code}`)}>
           Home Page
         </div>
 
