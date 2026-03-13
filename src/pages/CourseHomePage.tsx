@@ -90,22 +90,7 @@ export default function CourseHomePage(){
 
       <div style={page}>
 
-      <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'25px'}}>
-        <div
-          onClick={()=>navigate('/dashboard/student')}
-          style={{
-            cursor:'pointer',
-            fontSize:'22px',
-            background:'#ffffff',
-            padding:'8px 10px',
-            borderRadius:'8px',
-            boxShadow:'0 3px 8px rgba(0,0,0,0.15)'
-          }}
-        >
-          🏠
-        </div>
-        <h1 style={{margin:0}}>{code}</h1>
-      </div>
+      <h1 style={{marginBottom:'25px'}}>{code}</h1>
 
       <div style={container}>
 
