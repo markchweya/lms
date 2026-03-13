@@ -5,6 +5,7 @@ import StudentDashboard from './pages/StudentDashboard'
 import CalendarPage from './pages/CalendarPage'
 import MessagesPage from './pages/MessagesPage'
 import CourseHomePage from './pages/CourseHomePage'
+import ContentPage from './pages/ContentPage'
 import LoadingScreen from './components/LoadingScreen'
 
 function LecturerDashboard(){
@@ -57,6 +58,7 @@ function AppRoutes(){
           <Route path="/calendar" element={<CalendarPage/>} />
           <Route path="/messages" element={<MessagesPage/>} />
           <Route path="/course/:code" element={<CourseHomePage/>} />
+          <Route path="/course/:code/content" element={<ContentPage/>} />
           import CourseHomePage from './pages/CourseHomePage'
 
         </Routes>

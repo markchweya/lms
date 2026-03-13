@@ -21,9 +21,9 @@ export default function CourseSidebarLayout({ children, active }: any){
     color:'#1a1a1a',
     minHeight:'100vh',
     padding:'20px 0',
-    transform: open ? 'translateX(0)' : 'translateX(-100%)',
+    transform: open ? 'translateX(0) scale(1)' : 'translateX(-100%) scale(0.98)',
     boxShadow:'2px 0 15px rgba(0,0,0,0.25)',
-    transition:'transform 0.25s ease',
+    transition:'transform 0.35s cubic-bezier(.25,.8,.25,1)',
     zIndex:1000
   }
 
@@ -88,7 +88,7 @@ export default function CourseSidebarLayout({ children, active }: any){
           Home Page
         </div>
 
-        <div style={active==='content'?activeItem:item}>
+        <div style={active==='content'?activeItem:item} onClick={()=>navigate(`/course/${code}/content`)}>
           Content
         </div>
 
