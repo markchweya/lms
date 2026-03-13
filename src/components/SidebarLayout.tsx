@@ -75,9 +75,28 @@ export default function SidebarLayout({ children, active }: any){
         <h2 style={{marginTop:0}}>USIU Africa</h2>
 
         <div style={{marginTop:'30px'}}>
-          <div style={{...item,display:'flex',alignItems:'center',gap:'10px',cursor:'pointer'}} onClick={()=>navigate('/profile')}>
-            <span style={{width:'26px',height:'26px',borderRadius:'50%',background:'#555',display:'inline-block'}}></span>
-            <span style={{cursor:'pointer'}}>Test Name</span>
+          <div style={{
+            display:'flex',
+            alignItems:'center',
+            gap:'12px',
+            padding:'10px 12px',
+            borderRadius:'6px',
+            cursor:'pointer',
+            marginBottom:'14px'
+          }} onClick={()=>navigate('/profile')}>
+            <div style={{
+              width:'32px',
+              height:'32px',
+              borderRadius:'50%',
+              background:'#F2B705',
+              display:'flex',
+              alignItems:'center',
+              justifyContent:'center',
+              color:'#1F3C88',
+              fontWeight:700,
+              fontSize:'13px'
+            }}>TN</div>
+            <span style={{fontWeight:600,fontSize:'15px'}}>Test Name</span>
           </div>
 
           <div style={active==='activity'?activeItem:item}>Activity</div>
