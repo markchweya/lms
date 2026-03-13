@@ -6,31 +6,42 @@ function WeekItem({title,description,link}:{title:string,description:string,link
 
   const container:React.CSSProperties={
     display:'flex',
-    gap:'18px',
-    padding:'20px',
-    border:'1px solid #dcdcdc',
-    borderRadius:'6px',
-    background:'#fff',
-    alignItems:'flex-start'
+    gap:'20px',
+    padding:'24px',
+    border:'1px solid #e6e6e6',
+    borderRadius:'10px',
+    background:'#ffffff',
+    alignItems:'flex-start',
+    boxShadow:'0 6px 18px rgba(0,0,0,0.06)',
+    transition:'all 0.25s ease',
+    cursor:'pointer'
   }
 
   const icon:React.CSSProperties={
-    fontSize:'28px'
+    fontSize:'30px',
+    marginTop:'4px'
   }
 
   const titleStyle:React.CSSProperties={
     fontWeight:700,
-    fontSize:'18px'
+    fontSize:'20px',
+    color:'#1f2937',
+    letterSpacing:'0.3px'
   }
 
   const desc:React.CSSProperties={
-    marginTop:'6px'
+    marginTop:'6px',
+    fontSize:'15px',
+    color:'#4b5563',
+    fontWeight:500
   }
 
   const linkStyle:React.CSSProperties={
-    marginTop:'8px',
-    color:'#2C4AA5',
-    textDecoration:'underline'
+    marginTop:'10px',
+    color:'#2563eb',
+    fontSize:'14px',
+    fontWeight:600,
+    textDecoration:'none'
   }
 
   return (
@@ -54,16 +65,25 @@ export default function ContentPage(){
   const { code } = useParams()
 
   const page:React.CSSProperties={
-    padding:'30px',
+    padding:'40px',
     background:'#F5F6FA',
     minHeight:'100vh'
+  }
+
+  const header:React.CSSProperties={
+    fontSize:'34px',
+    fontWeight:800,
+    color:'#111827'
   }
 
   const list:React.CSSProperties={
     display:'flex',
     flexDirection:'column',
-    gap:'18px',
-    marginTop:'25px'
+    gap:'22px',
+    marginTop:'30px',
+    maxWidth:'900px',
+    marginLeft:'auto',
+    marginRight:'auto'
   }
 
   return (
@@ -72,7 +92,7 @@ export default function ContentPage(){
 
       <div style={page}>
 
-        <h1>{code} Content</h1>
+        <div style={header}>{code} Content</div>
 
         <div style={list}>
 
