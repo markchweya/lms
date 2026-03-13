@@ -15,6 +15,7 @@ export default function CourseSidebarLayout({ children, active }: any){
     left:0,
     top:0,
     height:'100vh',
+    overflowY:'auto',
     width:'230px',
     background:'#F2B705',
     color:'#1a1a1a',

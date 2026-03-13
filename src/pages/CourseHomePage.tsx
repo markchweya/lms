@@ -46,6 +46,7 @@ export default function CourseHomePage(){
     width:'100%',
     background:'#F5F6FA',
     padding:'30px',
+    minHeight:'100vh',
     boxSizing:'border-box'
   }
 
