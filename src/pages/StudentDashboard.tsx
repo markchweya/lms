@@ -76,7 +76,10 @@ const StudentDashboard: React.FC = () => {
 
         <div style={headerRow}>
           <h1>Courses</h1>
-          <div>Course Catalog</div>
+          <div style={{display:'flex',alignItems:'center',gap:'10px',fontWeight:500}}>
+            <span style={{width:'34px',height:'34px',borderRadius:'50%',background:'#2C4AA5',display:'inline-flex',alignItems:'center',justifyContent:'center',color:'#fff',fontSize:'14px'}}>TN</span>
+            Test Name
+          </div>
         </div>
 
         <div style={{marginBottom:'20px'}}>Search your courses</div>
