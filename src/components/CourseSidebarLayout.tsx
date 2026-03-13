@@ -96,8 +96,9 @@ export default function CourseSidebarLayout({ children, active }: any){
           Content
         </div>
 
-        <div style={active==='discussions'?activeItem:item}>
-          Discussions
+
+        <div style={active==='grades'?activeItem:item}>
+          My Grades
         </div>
 
         <div style={active==='groups'?activeItem:item}>
