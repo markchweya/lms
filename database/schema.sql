@@ -26,6 +26,8 @@ CREATE TABLE students (
   student_number TEXT UNIQUE,
   program TEXT,
   year INTEGER,
+  gender TEXT CHECK (gender IN ('male','female','prefer_not_to_say')),
+  full_name TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

@@ -41,17 +41,19 @@ export default function ProfilePage(){
   }
 
   const card:React.CSSProperties={
-    background:'#fff',
-    borderRadius:'10px',
-    padding:'20px',
-    boxShadow:'0 6px 18px rgba(0,0,0,0.08)'
+    background:'#ffffff',
+    borderRadius:'16px',
+    padding:'28px',
+    boxShadow:'0 12px 30px rgba(0,0,0,0.08)',
+    backdropFilter:'blur(6px)'
   }
 
   const row:React.CSSProperties={
     display:'flex',
     justifyContent:'space-between',
-    padding:'12px 0',
-    borderBottom:'1px solid #eee'
+    alignItems:'center',
+    padding:'16px 0',
+    gap:'20px'
   }
 
   return (
@@ -69,11 +71,11 @@ export default function ProfilePage(){
         <div style={grid}>
 
           <div style={card}>
-            <h3>Basic Information</h3>
+            <h3 style={{marginTop:0,marginBottom:'22px',fontSize:'20px',color:'#1F3C88',fontWeight:700}}>Basic Information</h3>
 
             <div style={row}>
               <div>Full Name</div>
-              <div>Test Name</div>
+              <input defaultValue="Test Name" style={{padding:'10px 12px',background:'#f7f8fc',border:'none',borderRadius:'8px',outline:'none',fontSize:'14px',minWidth:'180px'}} />
             </div>
 
             <div style={row}>
@@ -86,15 +88,24 @@ export default function ProfilePage(){
               <div>000000</div>
             </div>
 
+            <div style={row}>
+              <div>Gender</div>
+              <select style={{padding:'10px 12px',background:'#f7f8fc',border:'none',borderRadius:'8px',outline:'none',fontSize:'14px',minWidth:'180px',appearance:'none'}}>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+
             <div style={{...row,borderBottom:'none'}}>
               <div>Password</div>
-              <div>Change password</div>
+              <button style={{padding:'10px 16px',borderRadius:'8px',border:'none',background:'#1F3C88',color:'#fff',fontWeight:600,boxShadow:'0 6px 14px rgba(31,60,136,0.25)',cursor:'pointer'}}>Change password</button>
             </div>
 
           </div>
 
           <div style={card}>
-            <h3>System Settings</h3>
+            <h3 style={{marginTop:0,marginBottom:'22px',fontSize:'20px',color:'#1F3C88',fontWeight:700}}>System Settings</h3>
 
             <div style={row}>
               <div>Language</div>
