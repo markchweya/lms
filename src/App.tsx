@@ -1,8 +1,8 @@
 import React from 'react';
-import AdminDashboard from './admin/AdminDashboard';
+import Login from './Login';
 
 function App() {
-  return <AdminDashboard />;
+  return <Login />;
 }
 
 export default App;
