@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +17,11 @@ const Login: React.FC = () => {
     e.preventDefault();
 
     if (email === 'student@usiu.app' && password === '123') {
+      window.localStorage.setItem('role', 'student');
       window.location.href = '/dashboard/student';
+    } else if (email === 'admin@usiu.app' && password === '123') {
+      window.localStorage.setItem('role', 'admin');
+      window.location.href = '/dashboard/admin';
     } else {
       alert('Invalid username or password');
     }
